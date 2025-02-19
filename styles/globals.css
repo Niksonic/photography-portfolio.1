@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fix Background Image for Mobile */
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Default background for desktop */
+body {
+  background-image: url('/images/photo24.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Fix for Safari (iPhones) */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll !important;
+  }
+}

@@ -19,12 +19,7 @@ export default function Gallery() {
     <div
       className="relative flex flex-col items-center min-h-screen bg-cover bg-fixed bg-center text-gray-800 px-6"
       style={{
-        backgroundImage: "url('/images/photo24.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        width: "100vw",
-        minHeight: "100vh",
+
       }}
     >
 
