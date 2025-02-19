@@ -1,114 +1,62 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+export default function AboutMe() {
   return (
     <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+      className="relative flex items-center justify-center min-h-screen bg-cover bg-center text-gray-800 px-6"
+      style={{
+        backgroundImage: "url('/images/photo24.jpg')",
+        backgroundColor: "#f5f7fa",
+      }}
     >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              pages/index.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main Container */}
+      <div className="relative z-10 flex flex-col md:flex-row items-center max-w-5xl mx-auto p-8 space-y-6 md:space-y-0 md:space-x-10">
+        
+        {/* Profile Picture */}
+        <div className="flex-shrink-0 w-48 h-72">
+          <img
+            src="/images/profile.jpg"
+            alt="Nikson Profile"
+            className="w-full h-full object-cover rounded-lg border-2 border-gray-300 shadow-md"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Text Content */}
+        <div className="bg-white bg-opacity-80 p-6 rounded-lg shadow-lg w-full max-w-2xl text-center md:text-left">
+          <h1 className="text-5xl font-bold text-gray-800 drop-shadow-md">
+            Hi, I'm Nikson
+          </h1>
+          <p className="mt-4 text-lg text-gray-700 leading-relaxed drop-shadow-sm">
+          Hi, I'm Nikson – a passionate web developer and the creator of this website. I built this platform from the ground up to showcase my journey in both coding and visual storytelling. As a developer, I love crafting intuitive and interactive experiences, and this website reflects that blend of technology and creativity.
+
+Beyond development, my true passion lies in photography and videography. Inspired by visionary filmmakers like Christopher Nolan, Quentin Tarantino, and Denis Villeneuve, I strive to bring a cinematic touch to my work. Whether it's capturing raw emotions in a portrait, telling a compelling story through video, or immortalizing special moments, I aim to create visuals that resonate and inspire.
+
+Feel free to explore my work, and if you're looking to bring your vision to life, let's connect!
+          </p>
+
+          {/* Navigation Buttons */}
+          <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
+            <a
+              href="/gallery"
+              className="px-6 py-2 rounded-lg bg-blue-300 text-black font-semibold hover:bg-blue-600 transition"
+            >
+              Photography Gallery
+            </a>
+            <a
+              href="/video-gallery"
+              className="px-6 py-2 rounded-lg bg-blue-300 text-black font-semibold hover:bg-blue-600 transition"
+            >
+              Video Gallery
+            </a>
+            <a
+              href="/contact"
+              className="px-6 py-2 rounded-lg bg-blue-300 text- font-semibold hover:bg-blue-600 transition"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
