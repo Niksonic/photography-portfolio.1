@@ -4,10 +4,18 @@ export default function VideoGallery() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const videos = [
-    "/videos/video1.mp4",
-    "/videos/video2.mp4",
-    "/videos/video3.mp4",
-    "/videos/video4.mp4",
+    {
+      thumbnail: "/images/thumbnail1_2.1.1.jpg",
+      url: "https://res.cloudinary.com/dlvfv9vuh/video/upload/v1739971345/video1_am7x3f.mp4",
+    },
+    {
+      thumbnail: "/images/thumbnail2_1.1.1.jpg",
+      url: "https://res.cloudinary.com/dlvfv9vuh/video/upload/v1739971339/video2_hifbaa.mov",
+    },
+    {
+      thumbnail: "/images/thumbnail3_1.1.2.jpg",
+      url: "https://res.cloudinary.com/dlvfv9vuh/video/upload/v1739971350/video3_dgdki7.mp4",
+    },
   ];
 
   return (
@@ -17,7 +25,6 @@ export default function VideoGallery() {
         backgroundImage: "url('/images/photo24.jpg')",
       }}
     >
-
       {/* Top Navigation Bar */}
       <div className="relative z-10 flex justify-between items-center w-full max-w-5xl mt-6">
         
@@ -57,15 +64,14 @@ export default function VideoGallery() {
       {/* Grid Video Gallery with Border */}
       <div className="border-4 border-gray-300 bg-white bg-opacity-80 shadow-lg rounded-lg p-6 mt-6 w-full max-w-5xl">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {videos.map((src, index) => (
+          {videos.map((video, index) => (
             <div key={index} className="relative w-full h-48">
-              <video
+              <img
+                src={video.thumbnail}
+                alt={`Video ${index + 1}`}
                 className="w-full h-full object-cover rounded-lg cursor-pointer transition transform hover:scale-105"
-                onClick={() => setSelectedVideo(src)}
-              >
-                <source src={src} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                onClick={() => setSelectedVideo(video.url)}
+              />
             </div>
           ))}
         </div>
