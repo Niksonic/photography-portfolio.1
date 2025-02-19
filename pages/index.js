@@ -4,7 +4,11 @@ export default function AboutMe() {
       className="relative flex items-center justify-center min-h-screen bg-cover bg-center text-gray-800 px-6"
       style={{
         backgroundImage: "url('/images/photo24.jpg')",
-        backgroundColor: "#f5f7fa",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        width: "100vw",
+        minHeight: "100vh",
       }}
     >
 
