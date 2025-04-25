@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   const images = [
     "/images/photo1.jpg",
@@ -16,44 +19,39 @@ export default function Gallery() {
   ];
 
   return (
-    <div
-      className="relative flex flex-col items-center min-h-screen bg-cover bg-fixed bg-center text-gray-800 px-6"
-      style={{
+    <div className="relative flex flex-col items-center min-h-screen bg-cover bg-fixed bg-center text-gray-800 px-6">
 
-      }}
-    >
+    {/* 🔲 Desktop Navbar */}
+    <div className="hidden md:flex gap-4 my-6 fixed top-0 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-90 px-4 py-2 rounded-b-lg shadow-lg z-50">
+      <button onClick={() => router.push("/")} className="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 transition">Home</button>
+      <button onClick={() => router.push("/gallery")} className="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 transition">Photography Gallery</button>
+      <button onClick={() => router.push("/video-gallery")} className="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 transition">Video Gallery</button>
+      <button onClick={() => router.push("/contact")} className="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 transition">Contact Me</button>
+    </div>
 
-
-      {/* Top Navigation Bar */}
-      <div className="relative z-10 flex justify-between items-center w-full max-w-5xl mt-6">
-        
-        {/* Logo on the Left with Styling */}
-        <div className="text-gray-900 font-bold text-2xl tracking-wide bg-white bg-opacity-80 px-4 py-2 rounded-lg shadow-md">
-          Nikson Nhalale
-        </div>
-
-        {/* Centered Navigation Buttons */}
-        <div className="flex gap-4">
-          <a
-            href="/"
-            className="px-6 py-2 rounded-lg bg-blue-300 text-black font-semibold hover:bg-blue-500 transition"
-          >
-            Home
-          </a>
-          <a
-            href="/video-gallery"
-            className="px-6 py-2 rounded-lg bg-blue-300 text-black font-semibold hover:bg-blue-500 transition"
-          >
-            Video Gallery
-          </a>
-          <a
-            href="/contact"
-            className="px-6 py-2 rounded-lg bg-blue-300 text-black font-semibold hover:bg-blue-500 transition"
-          >
-            Contact Me
-          </a>
-        </div>
+    {/* 📱 Mobile Dropdown Menu */}
+    <div className="md:hidden fixed top-0 left-0 w-full bg-white bg-opacity-90 px-4 py-3 shadow z-50">
+      <div className="flex justify-between items-center">
+        <div className="text-xl font-bold">Menu</div>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-xl font-bold px-2"
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Dropdown Buttons */}
+      {menuOpen && (
+        <div className="mt-3 flex flex-col gap-2">
+          <button onClick={() => { router.push("/"); setMenuOpen(false); }} className="bg-blue-300 text-black px-4 py-2 rounded hover:bg-blue-500 transition">Home</button>
+          <button onClick={() => { router.push("/gallery"); setMenuOpen(false); }} className="bg-blue-300 text-black px-4 py-2 rounded hover:bg-blue-500 transition">Photography Gallery</button>
+          <button onClick={() => { router.push("/video-gallery"); setMenuOpen(false); }} className="bg-blue-300 text-black px-4 py-2 rounded hover:bg-blue-500 transition">Video Gallery</button>
+          <button onClick={() => { router.push("/contact"); setMenuOpen(false); }} className="bg-blue-300 text-black px-4 py-2 rounded hover:bg-blue-500 transition">Contact Me</button>
+        </div>
+      )}
+    </div>
+      
 
       {/* Page Title with Improved Font Styling */}
       <h1 className="text-5xl font-bold text-gray-900 mt-8 tracking-wide bg-white bg-opacity-70 px-8 py-3 rounded-lg shadow-lg">
